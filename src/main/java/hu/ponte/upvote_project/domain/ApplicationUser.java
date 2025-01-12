@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import hu.ponte.upvote_project.config.security.UserRole;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -31,6 +32,11 @@ public class ApplicationUser {
     private UserRole role;
 
     @OneToMany(mappedBy = "user")
-    private List<Idea> ideas;
+    private List<Idea> ideas = new ArrayList<>();
 
+    public ApplicationUser(String username, String hashedPassword) {
+        this.username = username;
+        this.password = hashedPassword;
+        this.role = UserRole.ROLE_USER;
+    }
 }
