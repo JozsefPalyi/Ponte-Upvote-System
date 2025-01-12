@@ -17,6 +17,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -57,6 +58,16 @@ public class GlobalExceptionHandler {
         return validationError;
     }
 
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<ApiError> handleUsernameNotFoundException(UsernameNotFoundException ex) {
+        logger.error("Username not found: ", ex);
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+
+        ApiError body = new ApiError(ERROR_CODE.USER_NOT_FOUND.name(), "User not found with the given username.", ex.getMessage());
+
+        return new ResponseEntity<>(body, status);
+    }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ApiError> handleIllegalArgumentException(IllegalArgumentException ex) {
@@ -103,5 +114,6 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(body, status);
     }
+
 }
 
