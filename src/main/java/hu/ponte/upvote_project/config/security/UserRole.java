@@ -1,4 +1,4 @@
-package upvote_project.config.security;
+package hu.ponte.upvote_project.config.security;
 
 public enum UserRole {
 

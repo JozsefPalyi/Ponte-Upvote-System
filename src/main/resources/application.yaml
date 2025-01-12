@@ -7,17 +7,18 @@ server:
       force: true
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/upvote_db
+    url: jdbc:postgresql://localhost:5432/mypostgredatabase
     username: postgres_server
     password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
-  properties:
-    hibernate:
-      show_sql: true
-      format_sql: true
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 logging:
   file:

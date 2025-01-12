@@ -1,11 +1,11 @@
-package upvote_project.domain;
+package hu.ponte.upvote_project.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import upvote_project.config.security.UserRole;
+import hu.ponte.upvote_project.config.security.UserRole;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "application_user")
+public class ApplicationUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

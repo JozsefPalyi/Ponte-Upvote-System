@@ -1,4 +1,4 @@
-package upvote_project.domain;
+package hu.ponte.upvote_project.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class Vote {
 
         @ManyToOne
         @JoinColumn(name = "user_id")
-        private User user;
+        private ApplicationUser user;
 
         @ManyToOne
         @JoinColumn(name = "idea_id")
