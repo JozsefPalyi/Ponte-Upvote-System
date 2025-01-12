@@ -1,13 +1,11 @@
 package hu.ponte.upvote_project.config.security;
 
-import hu.ponte.upvote_project.service.CustomUserDetailsService;
 import hu.ponte.upvote_project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.CachingUserDetailsService;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
